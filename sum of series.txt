@@ -8,6 +8,7 @@ int main()
 	bool signDicider = true;
 	cout << "Enter how many digits sum you want: ";
 	cin >> numberOfDigits;
+cout<<"\n6";
 	while (count <= numberOfDigits)
 	{
 		int counter = 1, multiple = 1;
