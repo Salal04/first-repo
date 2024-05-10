@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	// sum of 1^0 - 1^2 + 2^3 series
+	int numberOfDigits, count = 3, baseTerm1 = 1, baseTerm2 = 1, baseNextTerm, sum = 0;
+	int powerTerm1 = 0, powerTerm2 = 1, powerNextTerm;
+	bool signDicider = true;
+	cout << "Enter how many digits sum you want: ";
+	cin >> numberOfDigits;
+	while (count <= numberOfDigits)
+	{
+		int counter = 1, multiple = 1;
+		baseNextTerm = baseTerm1 + baseTerm2;
+		powerNextTerm = powerTerm1 + powerTerm2;
+		while (counter <= powerNextTerm)
+		{
+			multiple = multiple * baseNextTerm;
+			counter = counter + 1;
+		}
+		if (signDicider == false) {
+			multiple = multiple * -1;
+		}
+		//cout << " { digit after multiply: " << multiple << "}";
+		//cout << "\n{Anser of its power" << multiple << " }";
+		if (signDicider == true)
+		{
+			signDicider = false;
+		}
+		else
+		{
+			signDicider = true;
+		}
+		sum = sum + multiple;
+		baseTerm1 = baseTerm2;
+		baseTerm2 = baseNextTerm;
+		powerTerm1 = powerTerm2;
+		powerTerm2 = powerNextTerm;
+		count = count + 1;
+	}
+
+	cout << "The Sum of the series is :" << sum;
